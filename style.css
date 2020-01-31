@@ -15,8 +15,8 @@ h1 {
 button {
   position: fixed;
   left: 55%;
-  margin-left: -750px;
-  margin-top: 200px;
+  margin-left: -780px;
+  margin-top: 150px;
   width: 200px;
   padding: 15px 25px;
   font-size: 24px;
@@ -44,4 +44,28 @@ img {
   width: 200px;
   margin-top: 700px;
   margin-left: 150px;
+}
+
+.pizza:hover {
+  animation: pizza 2s;
+}
+@keyframes pizza {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(1000px);
+  }
+}
+
+#text {
+  position: fixed;
+  left: 55%;
+  margin-left: -560px;
+  margin-top: 150px;
+  margin-right: 100px;
+  margin-bottom: -400px;
+  font-size: 18px;
+  text-align: left;
+  color: black solid;
 }

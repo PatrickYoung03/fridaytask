@@ -4,24 +4,30 @@ let area = document.createElement("p");
 let instructions = document.createElement("p");
 let ingredients = document.createElement("ul");
 
-let recipe = fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-  .then(function(display) {
-    console.log(display);
-    return display.json();
-  })
-  .then(function(data) {
-    console.log(data);
-    document.body.appendChild(meal);
-    document.body.appendChild(cat);
-    document.body.appendChild(area);
-    document.body.appendChild(instructions);
+document.querySelector("#food-btn").addEventListener("click", tellrecipe);
 
-    //document.body.innerText = data.meals[0].strMeal;
-    meal.innerText = data.meals[0].strMeal;
-    cat.innerText = data.meals[0].strCategory;
-    area.innerText = data.meals[0].strArea;
-    instructions.innerText = data.meals[0].strInstructions;
-  });
+var section = document.querySelector("#text");
+
+function tellrecipe() {
+  let recipe = fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+    .then(function(display) {
+      console.log(display);
+      return display.json();
+    })
+    .then(function(data) {
+      console.log(data);
+      section.appendChild(meal);
+      section.appendChild(cat);
+      section.appendChild(area);
+      section.appendChild(instructions);
+
+      //document.body.innerText = data.meals[0].strMeal;
+      meal.innerText = data.meals[0].strMeal;
+      cat.innerText = data.meals[0].strCategory;
+      area.innerText = data.meals[0].strArea;
+      instructions.innerText = data.meals[0].strInstructions;
+    });
+}
 
 // before fetch add a 'loading' boolean class to the animation.
 // if loading then the animation will move across the page like a loading bar
